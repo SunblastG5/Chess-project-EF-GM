@@ -1,3 +1,4 @@
+package fisi.chess.project.ef;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 // -------------------------------------------------------------------------

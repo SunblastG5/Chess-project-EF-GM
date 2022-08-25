@@ -1,3 +1,4 @@
+package fisi.chess.project.ef;
 import java.util.ArrayList;
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -85,10 +86,10 @@ public class ChessGameEngine{
     public boolean playerHasLegalMoves( int playerNum ){
         ArrayList<ChessGamePiece> pieces;
         if ( playerNum == 1 ){
-            pieces = board.getAllWhitePieces();
+            pieces = (ArrayList<ChessGamePiece>) board.getAllWhitePieces();
         }
         else if ( playerNum == 2 ){
-            pieces = board.getAllBlackPieces();
+            pieces = (ArrayList<ChessGamePiece>) board.getAllBlackPieces();
         }
         else
         {
@@ -113,18 +114,12 @@ public class ChessGameEngine{
         }
         if ( currentPlayer == 2 ) // black player
         {
-            if ( currentPiece.getColorOfPiece() == ChessGamePiece.BLACK ){
-                return true;
-            }
-            return false;
+            return ( currentPiece.getColorOfPiece() == ChessGamePiece.BLACK );
         }
         else
         // white player
         {
-            if ( currentPiece.getColorOfPiece() == ChessGamePiece.WHITE ){
-                return true;
-            }
-            return false;
+            return ( currentPiece.getColorOfPiece() == ChessGamePiece.WHITE );
         }
     }
     /**
@@ -167,7 +162,6 @@ public class ChessGameEngine{
         else
         {
             board.resetBoard( false );
-            // System.exit(0);
         }
     }
     /**
@@ -254,23 +248,14 @@ public class ChessGameEngine{
             }
             else
             {
-                if ( currentPiece != null ){
-                    JOptionPane.showMessageDialog(
+            	String IllegalMessage = "You tried to pick up ";
+            	IllegalMessage += currentPiece != null ? "the other player's piace! " : "an empty square! ";
+            	IllegalMessage += "Get some glasses and pick a valid square.";
+            	JOptionPane.showMessageDialog(
                         squareClicked,
-                        "You tried to pick up the other player's piece! "
-                            + "Get some glasses and pick a valid square.",
+                        IllegalMessage,
                         "Illegal move",
                         JOptionPane.ERROR_MESSAGE );
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(
-                        squareClicked,
-                        "You tried to pick up an empty square! "
-                            + "Get some glasses and pick a valid square.",
-                        "Illegal move",
-                        JOptionPane.ERROR_MESSAGE );
-                }
             }
         }
         else

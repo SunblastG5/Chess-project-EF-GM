@@ -1,3 +1,4 @@
+package fisi.chess.project.ef;
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
 // -------------------------------------------------------------------------
@@ -99,12 +100,12 @@ public class Knight
     public ImageIcon createImageByPieceType(){
         if ( getColorOfPiece() == ChessGamePiece.WHITE ){
             return new ImageIcon(
-                getClass().getResource("chessImages/WhiteKnight.gif")
+                getClass().getResource("/chessImages/WhiteKnight.gif")
             );            
         }
         else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
             return new ImageIcon(
-                getClass().getResource("chessImages/BlackKnight.gif")
+                getClass().getResource("/chessImages/BlackKnight.gif")
             );            
         }
         else

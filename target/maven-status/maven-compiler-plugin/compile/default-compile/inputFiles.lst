@@ -1,15 +1,15 @@
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessGameEngine.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessMain.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\Rook.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessGamePiece.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessMenuBar.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\King.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\Knight.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessGameLog.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\Queen.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessGraveyard.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\BoardSquare.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessGameBoard.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\Pawn.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\Bishop.java
-G:\patrones\veranito-chesss\veranito-chess\src\main\java\ChessPanel.java
+D:\Alexis\mrds de la carrera\mrds del ciclo 9\manteniendo el peso\examen-final\chess-project\src\main\java\fisi\chess\project\ef\ChessGameBoard.java
+D:\Alexis\mrds de la carrera\mrds del ciclo 9\manteniendo el peso\examen-final\chess-project\src\main\java\fisi\chess\project\ef\ChessGameLog.java
+D:\Alexis\mrds de la carrera\mrds del ciclo 9\manteniendo el peso\examen-final\chess-project\src\main\java\fisi\chess\project\ef\ChessMain.java
+D:\Alexis\mrds de la carrera\mrds del ciclo 9\manteniendo el peso\examen-final\chess-project\src\main\java\fisi\chess\project\ef\ChessGameEngine.java
+D:\Alexis\mrds de la carrera\mrds del ciclo 9\manteniendo el peso\examen-final\chess-project\src\main\java\fisi\chess\project\ef\ChessGraveyard.java
+D:\Alexis\mrds de la carrera\mrds del ciclo 9\manteniendo el peso\examen-final\chess-project\src\main\java\fisi\chess\project\ef\Knight.java
+D:\Alexis\mrds de la carrera\mrds del ciclo 9\manteniendo el peso\examen-final\chess-project\src\main\java\fisi\chess\project\ef\King.java
+D:\Alexis\mrds de la carrera\mrds del ciclo 9\manteniendo el peso\examen-final\chess-project\src\main\java\fisi\chess\project\ef\Rook.java
+D:\Alexis\mrds de la carrera\mrds del ciclo 9\manteniendo el peso\examen-final\chess-project\src\main\java\fisi\chess\project\ef\Bishop.java
+D:\Alexis\mrds de la carrera\mrds del ciclo 9\manteniendo el peso\examen-final\chess-project\src\main\java\fisi\chess\project\ef\Pawn.java
+D:\Alexis\mrds de la carrera\mrds del ciclo 9\manteniendo el peso\examen-final\chess-project\src\main\java\fisi\chess\project\ef\Queen.java
+D:\Alexis\mrds de la carrera\mrds del ciclo 9\manteniendo el peso\examen-final\chess-project\src\main\java\fisi\chess\project\ef\ChessGamePiece.java
+D:\Alexis\mrds de la carrera\mrds del ciclo 9\manteniendo el peso\examen-final\chess-project\src\main\java\fisi\chess\project\ef\ChessPanel.java
+D:\Alexis\mrds de la carrera\mrds del ciclo 9\manteniendo el peso\examen-final\chess-project\src\main\java\fisi\chess\project\ef\ChessMenuBar.java
+D:\Alexis\mrds de la carrera\mrds del ciclo 9\manteniendo el peso\examen-final\chess-project\src\main\java\fisi\chess\project\ef\BoardSquare.java

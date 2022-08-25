@@ -1,4 +1,6 @@
+package fisi.chess.project.ef;
 import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.Color;
@@ -73,7 +75,7 @@ public class ChessGameBoard extends JPanel{
      *
      * @return ArrayList<GamePiece> the pieces
      */
-    public ArrayList<ChessGamePiece> getAllWhitePieces(){
+    public List<ChessGamePiece> getAllWhitePieces(){
         ArrayList<ChessGamePiece> whitePieces = new ArrayList<ChessGamePiece>();
         for ( int i = 0; i < 8; i++ ){
             for ( int j = 0; j < 8; j++ ){
@@ -92,7 +94,7 @@ public class ChessGameBoard extends JPanel{
      *
      * @return ArrayList<GamePiece> the pieces
      */
-    public ArrayList<ChessGamePiece> getAllBlackPieces(){
+    public List<ChessGamePiece> getAllBlackPieces(){
         ArrayList<ChessGamePiece> blackPieces = new ArrayList<ChessGamePiece>();
         for ( int i = 0; i < 8; i++ ){
             for ( int j = 0; j < 8; j++ ){
@@ -148,7 +150,6 @@ public class ChessGameBoard extends JPanel{
             }
         }
         repaint();
-        //revalidate();
         // only the combination of these two calls work...*shrug*
     }
     /**
@@ -156,56 +157,52 @@ public class ChessGameBoard extends JPanel{
      * pieces added.
      */
     public void initializeBoard(){
-        resetBoard( false );
+        resetBoard(false);
         for ( int i = 0; i < chessCells.length; i++ ){
-            for ( int j = 0; j < chessCells[0].length; j++ ){
-                ChessGamePiece pieceToAdd;
-                if ( i == 1 ) // black pawns
-                {
-                    pieceToAdd = new Pawn( this, i, j, ChessGamePiece.BLACK );
-                }
-                else if ( i == 6 ) // white pawns
-                {
-                    pieceToAdd = new Pawn( this, i, j, ChessGamePiece.WHITE );
-                }
-                else if ( i == 0 || i == 7 ) // main rows
-                {
-                    int colNum =
-                        i == 0 ? ChessGamePiece.BLACK : ChessGamePiece.WHITE;
-                    if ( j == 0 || j == 7 ){
-                        pieceToAdd = new Rook( this, i, j, colNum );
-                    }
-                    else if ( j == 1 || j == 6 ){
-                        pieceToAdd = new Knight( this, i, j, colNum );
-                    }
-                    else if ( j == 2 || j == 5 ){
-                        pieceToAdd = new Bishop( this, i, j, colNum );
-                    }
-                    else if ( j == 3 ){
-                        pieceToAdd = new King( this, i, j, colNum );
-                    }
-                    else
-                    {
-                        pieceToAdd = new Queen( this, i, j, colNum );
-                    }
-                }
-                else
-                {
-                    pieceToAdd = null;
-                }
-                chessCells[i][j] = new BoardSquare( i, j, pieceToAdd );
-                if ( ( i + j ) % 2 == 0 ){
-                    chessCells[i][j].setBackground( Color.WHITE );
-                }
-                else
-                {
-                    chessCells[i][j].setBackground( Color.BLACK );
-                }
-                chessCells[i][j].addMouseListener( listener );
-                this.add( chessCells[i][j] );
-            }
+          for ( int j = 0; j < chessCells[0].length; j++ ){
+            ChessGamePiece pieceToAdd = null;    
+            pieceToAdd = instantiatePiece(i, j);
+            initializeCells(i, j, pieceToAdd);
+          }
         }
-    }
+      }
+
+      public ChessGamePiece instantiatePiece(int i, int j) {
+        float mv = 3.5f;
+        int pieceColor = i == 1 ? ChessGamePiece.BLACK : ChessGamePiece.WHITE;
+        if (Math.abs(mv - i) == 2.5f) {
+          return new Pawn(this, i, j, pieceColor);
+        } else if (Math.abs(mv - i) == mv) { // main rows
+          pieceColor = i == 0 ? ChessGamePiece.BLACK : ChessGamePiece.WHITE;
+          if (Math.abs(mv - j) == mv){
+            return new Rook( this, i, j, pieceColor);
+          }
+          else if (Math.abs(mv - j) == 2.5f){
+            return new Knight( this, i, j, pieceColor);
+          }
+          else if (Math.abs(mv - j) == 1.5f){
+            return new Bishop( this, i, j, pieceColor);
+          }
+          else if (j == 3){
+            return new King( this, i, j, pieceColor);
+          }
+          return new Queen( this, i, j, pieceColor);
+        }
+        return null;
+      }
+
+      public void initializeCells(int i, int j, ChessGamePiece pieceToAdd) {
+        chessCells[i][j] = new BoardSquare( i, j, pieceToAdd );
+        Color chessCellColor = ((i + j) % 2 == 0) ? Color.WHITE : Color.BLACK;
+        chessCells[i][j].setBackground(chessCellColor);
+        chessCells[i][j].addMouseListener( listener );
+        this.add(chessCells[i][j]);
+      }
+    
+    
+    
+    
+    
     // ----------------------------------------------------------
     /**
      * Clears the colors on the board.

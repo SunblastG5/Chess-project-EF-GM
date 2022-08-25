@@ -1,5 +1,7 @@
+package fisi.chess.project.ef;
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
+import java.util.function.IntUnaryOperator;
 // -------------------------------------------------------------------------
 /**
  * Represents a Pawn game piece. Unique in that it can move two locations on its
@@ -71,13 +73,12 @@ public class Pawn
     @Override
     protected ArrayList<String> calculatePossibleMoves( ChessGameBoard board ){
         ArrayList<String> moves = new ArrayList<String>();
+        IntUnaryOperator dirColorOp = ChessGamePiece.WHITE == this.getColorOfPiece() ? x -> x-1 : x -> x+1;
+        
         if ( isPieceOnScreen() ){
-            int currRow =
-                getColorOfPiece() == ChessGamePiece.WHITE
-                    ? ( pieceRow - 1 )
-                    : ( pieceRow + 1 );
+            int currRow = dirColorOp.applyAsInt(pieceRow);
             int count = 1;
-            int maxIter = notMoved ? 2 : 1;
+            int maxIter = Boolean.compare(notMoved, true) + 2;
             // check for normal moves
             while ( count <= maxIter ){ // only loop while we have open slots and have not passed our
               // limit
@@ -90,30 +91,17 @@ public class Pawn
                 {
                     break;
                 }
-                currRow =
-                    ( getColorOfPiece() == ChessGamePiece.WHITE )
-                        ? ( currRow - 1 )
-                        : ( currRow + 1 );
+                currRow = dirColorOp.applyAsInt(currRow);
                 count++;
             }
             // check for enemy capture points
-            if ( getColorOfPiece() == ChessGamePiece.WHITE ){
-                if ( isEnemy( board, pieceRow - 1, pieceColumn - 1 ) ){
-                    moves.add( ( pieceRow - 1 ) + "," + ( pieceColumn - 1 ) );
-                }
-                if ( isEnemy( board, pieceRow - 1, pieceColumn + 1 ) ){
-                    moves.add( ( pieceRow - 1 ) + "," + ( pieceColumn + 1 ) );
-                }
+            if (isEnemy(board, dirColorOp.applyAsInt(pieceRow), pieceColumn - 1)) {
+            	moves.add( ( dirColorOp.applyAsInt(pieceRow) ) + "," + ( pieceColumn - 1 ) );
             }
-            else
-            {
-                if ( isEnemy( board, pieceRow + 1, pieceColumn - 1 ) ){
-                    moves.add( ( pieceRow + 1 ) + "," + ( pieceColumn - 1 ) );
-                }
-                if ( isEnemy( board, pieceRow + 1, pieceColumn + 1 ) ){
-                    moves.add( ( pieceRow + 1 ) + "," + ( pieceColumn + 1 ) );
-                }
+            if (isEnemy(board, dirColorOp.applyAsInt(pieceRow), pieceColumn + 1)) {
+            	moves.add( ( dirColorOp.applyAsInt(pieceRow) ) + "," + ( pieceColumn + 1 ) );
             }
+            
         }
         return moves;
     }
@@ -126,18 +114,18 @@ public class Pawn
     public ImageIcon createImageByPieceType(){
         if ( getColorOfPiece() == ChessGamePiece.WHITE ){
             return new ImageIcon(
-                getClass().getResource("chessImages/WhitePawn.gif")
+                getClass().getResource("/chessImages/WhitePawn.gif")
             );            
         }
         else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
             return new ImageIcon(
-                getClass().getResource("chessImages/BlackPawn.gif")
+                getClass().getResource("/chessImages/BlackPawn.gif")
             );            
         }
         else
         {
             return new ImageIcon(
-                getClass().getResource("chessImages/default-Unassigned.gif")
+                getClass().getResource("/chessImages/default-Unassigned.gif")
             );           
         }
     }

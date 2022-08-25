@@ -1,3 +1,4 @@
+package fisi.chess.project.ef;
 import java.awt.*;
 import javax.swing.*;
 // -------------------------------------------------------------------------

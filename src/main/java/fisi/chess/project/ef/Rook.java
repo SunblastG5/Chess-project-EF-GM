@@ -1,3 +1,4 @@
+package fisi.chess.project.ef;
 import javax.swing.ImageIcon;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,8 +13,7 @@ import java.util.Map;
  * @version 2010.11.17
  */
 public class Rook extends ChessGamePiece{
-	protected Map<Integer, String> icons_map;
-	// private ArrayList<String> possibleMoves;
+	protected Map<Integer, String> Icons_Map;
 	// ----------------------------------------------------------
 	/**
 	 * Create a new Rook object.
@@ -55,12 +55,12 @@ public class Rook extends ChessGamePiece{
 	 */
 	@Override
 	public ImageIcon createImageByPieceType() {
-		icons_map = new HashMap<Integer, String>();
+		Icons_Map = new HashMap<Integer, String>();
 
-		icons_map.put(-1, "chessImages/default-Unassigned.gif");
-		icons_map.put(ChessGamePiece.BLACK, "chessImages/BlackRook.gif");
-		icons_map.put(ChessGamePiece.WHITE, "chessImages/WhiteRook.gif");
+		Icons_Map.put(-1, "/chessImages/default-Unassigned.gif");
+		Icons_Map.put(ChessGamePiece.BLACK, "/chessImages/BlackRook.gif");
+		Icons_Map.put(ChessGamePiece.WHITE, "/chessImages/WhiteRook.gif");
 		
-		return new ImageIcon(getClass().getResource(this.icons_map.get(getColorOfPiece())));
+		return new ImageIcon(getClass().getResource(this.Icons_Map.get(getColorOfPiece())));
 	}
 }
