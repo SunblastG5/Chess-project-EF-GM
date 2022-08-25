@@ -17,7 +17,11 @@ import java.awt.GridLayout;
  * @version 2010.11.17
  */
 public class ChessGameBoard extends JPanel{
-    private BoardSquare[][] chessCells;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 8316872042099274428L;
+	private BoardSquare[][] chessCells;
     private BoardListener   listener;
     // ----------------------------------------------------------
     /**

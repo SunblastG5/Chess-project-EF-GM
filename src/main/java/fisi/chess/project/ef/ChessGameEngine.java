@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import java.awt.event.MouseEvent;
+import java.io.Serializable;
 // -------------------------------------------------------------------------
 /**
  * This is the backend behind the Chess game. Handles the turn-based aspects of
@@ -13,8 +14,12 @@ import java.awt.event.MouseEvent;
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
  */
-public class ChessGameEngine{
-    private ChessGamePiece currentPiece;
+public class ChessGameEngine implements Serializable{
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 7938105312109863387L;
+	private ChessGamePiece currentPiece;
     private boolean        firstClick;
     private int            currentPlayer;
     private ChessGameBoard board;
@@ -248,12 +253,12 @@ public class ChessGameEngine{
             }
             else
             {
-            	String IllegalMessage = "You tried to pick up ";
-            	IllegalMessage += currentPiece != null ? "the other player's piace! " : "an empty square! ";
-            	IllegalMessage += "Get some glasses and pick a valid square.";
+            	String illegalMessage = "You tried to pick up ";
+            	illegalMessage += currentPiece != null ? "the other player's piace! " : "an empty square! ";
+            	illegalMessage += "Get some glasses and pick a valid square.";
             	JOptionPane.showMessageDialog(
                         squareClicked,
-                        IllegalMessage,
+                        illegalMessage,
                         "Illegal move",
                         JOptionPane.ERROR_MESSAGE );
             }
