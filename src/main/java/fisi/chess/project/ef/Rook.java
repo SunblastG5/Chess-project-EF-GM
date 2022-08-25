@@ -13,7 +13,7 @@ import java.util.Map;
  * @version 2010.11.17
  */
 public class Rook extends ChessGamePiece{
-	protected Map<Integer, String> iconsMap;
+	private Map<Integer, String> iconsMap;
 	// ----------------------------------------------------------
 	/**
 	 * Create a new Rook object.

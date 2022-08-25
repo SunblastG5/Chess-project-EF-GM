@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
+import java.io.Serializable;
 // -------------------------------------------------------------------------
 /**
  * The panel that represents the Chess game board. Contains a few methods that
@@ -233,9 +234,13 @@ public class ChessGameBoard extends JPanel{
      * @version 2010.11.16
      */
     private class BoardListener
-        implements MouseListener
+        implements MouseListener, Serializable
     {
         /**
+		 * 
+		 */
+		private static final long serialVersionUID = -374689781738043751L;
+		/**
          * Do an action when the left mouse button is clicked.
          *
          * @param e

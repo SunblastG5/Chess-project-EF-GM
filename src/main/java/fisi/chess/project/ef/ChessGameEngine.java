@@ -240,6 +240,7 @@ public class ChessGameEngine implements Serializable{
      * @param e
      *            the mouse event from the listener
      */
+    
     public void determineActionFromSquareClick( MouseEvent e ){
         BoardSquare squareClicked = (BoardSquare)e.getSource();
         ChessGamePiece pieceOnSquare = squareClicked.getPieceOnSquare();
@@ -290,13 +291,9 @@ public class ChessGameEngine implements Serializable{
                         "Invalid move",
                         JOptionPane.ERROR_MESSAGE );
                 }
-                firstClick = true;
             }
-            else
             // user is just unselecting the current piece
-            {
-                firstClick = true;
-            }
+            firstClick = true;
         }
     }
 }
